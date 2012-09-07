@@ -1,0 +1,386 @@
+@import "compass/reset"
+@import "compass/css3"
+@import "compass/typography/text/replacement"
+@import "compass/typography/lists/horizontal-list"
+@import "settings"
+@import "foundation/settings"
+@import "foundation/functions/all"
+@import "foundation/common/globals"
+@import "foundation/mixins/clearfix"
+@import "foundation/mixins/css-triangle"
+@import "foundation/mixins/font-size"
+@import "foundation/mixins/respond-to"
+@import "foundation/mixins/semantic-grid"
+@import "foundation/components/grid"
+@import "foundation/common/forms"
+@import "foundation/components/modules/buttons"
+
+// SPRITES
+$sprites-layout: diagonal
+@import "sprites/*.png"
+$sprites: sprite-map("sprites/*.png")
+
+@mixin include-image($name)
+   +sprites-sprite($name)
+   +hide-text
+   display: block
+   width: sprites-sprite-width($name)
+   height: sprites-sprite-height($name)
+
+// GENERAL CLASSES
+::selection
+   background: $darkColor
+   color: white
+::-moz-selection
+   background: $secondaryColor
+   color: white
+
+body
+   padding: 40px 0 20px
+   font-family: Arial, sans-serif
+   font-size: 1.4em
+   line-height: 1.4em
+
+a
+   color: $highlightColor
+
+   &:hover
+      color: $highlightColor
+      text-decoration: underline
+
+p, address
+   margin-bottom: $formSpacing
+
+h2, h3
+   font-family: $headerFontFamily
+   font-weight: bold
+   font-size: 1.4em
+   letter-spacing: -1px
+   margin-bottom: 23px
+   line-height: 1.2em
+
+h3
+   color: $secondaryColor
+
+small
+   font-size: .7em
+
+   &.switch-languages img
+      position: relative
+      bottom: -3px
+
+strong
+   @extend h2
+   font-size: 1em
+
+blockquote
+   font-size: 1.1em
+   text-align: right
+   font-weight: bold
+   color: $secondaryColor
+   position: relative
+   quotes:\201C
+
+   &:after
+      content: "“"
+      display: block
+      position: absolute
+      top: -24px
+      right: 35%
+      font-size: 3.4em
+      font-family: serif
+
+.secondary
+   color: $secondaryColor
+
+.hidden
+   display: none
+
+// HEADER
+#main-header
+   width: 100%
+   position: fixed
+   top: 0
+   font-size: .9em
+   z-index: 100
+   overflow: hidden
+   padding: 15px 20px 10px 40px
+   line-height: 1.7em
+
+   background: white url('../images/top_bg.png') no-repeat center top
+   +transition(all .4s)
+
+   a.main-menu-link
+      color: black
+      padding: 0 3px
+      +border-radius(2px)
+      +transition(all .2s)
+
+      &:hover
+         background: black
+         color: white
+         text-decoration: none
+         position: relative
+         top: -1px
+         +box-shadow(0 1px 2px rgba(#000,.5))
+
+      &:active
+         top: 0
+         +box-shadow(0 0 3px rgba(#fff, .9) inset)
+
+   .top-link
+      padding: 0 8px
+      position: relative
+      bottom: -2px
+      +transition(bottom .3s)
+
+      &:hover
+         bottom: 4px
+
+   #logo-group
+
+      #logo
+         display: block
+         float: left
+         width: 88px
+         height: 40px
+         position: relative
+         bottom: -1px
+         +replace-text('logo.png', 0, 0)
+
+      .sub-title
+         float: left
+         color: $highlightColor
+         font-size: .8em
+         position: relative
+         top: 31px
+         left: 20px
+
+   &.highlight
+      color: white
+      padding: 10px 20px 10px 40px
+
+      a.main-menu-link
+         color: white
+
+      .top-link
+         +include-image(top_arrow_light)
+
+      #logo-group
+         #logo
+            background-position: left bottom
+         .sub-title
+            visibility: hidden
+
+   &.services-area
+      background: $highlightColor
+   &.about-area
+      background: $secondHighlightColor
+   &.why-area
+      background: $thirdHighlightColor
+
+   // MENU
+   #main-menu
+      +horizontal-list
+      float: right
+      position: relative
+      margin-top: 30px
+
+// CONTENT GENERAL
+#main
+   +outerRow
+
+.content-area
+   padding: 140px 0 240px
+
+   h1.big-call-out
+      font-family: $headerFontFamily
+      font-size: 5em
+      letter-spacing: -5px
+      line-height: 1.1em
+      margin-bottom: 70px
+
+article.three-sections
+   +clearfix
+
+   section
+      +column(4)
+      padding-left: 0
+
+      p
+         padding-right: 40px
+
+article.two-sections
+   +clearfix
+
+   .article-aside
+      +column(3)
+
+   .article-content
+      +column(9)
+
+.form-link
+   @extend strong
+   margin-bottom: 0
+   color: $secondaryColor
+   text-transform: uppercase
+   font-size: .7em
+   display: block
+   line-height: 4em !important
+   height: sprites-sprite-height(orcamento_small)
+
+   &.orcamento-link
+      +sprites-sprite(orcamento_small)
+      padding-left: sprites-sprite-width(contact_small)+10
+
+   &.contact-link
+      +sprites-sprite(contact_small)
+      padding-left: sprites-sprite-width(contact_small)+10
+
+.strong-introduction
+   font-size: 1.2em
+   line-height: 1.3em
+   position: relative
+   top: -30px
+   margin-bottom: 24px
+
+   h2, ul
+      display: inline
+
+   h2
+      font-size: 1.2em
+
+   p
+      font-size: 1.1em
+      line-height: 1.2em
+      margin-bottom: 23px
+
+.services-list
+   li
+      display: inline
+
+.points-list
+   @extend .services-list
+   font-size: 1.1em
+   font-style: italic
+
+   li
+      padding-left: 3px
+
+      &:nth-child(2n)
+         font-weight: bold
+
+      &:before
+         content: " /// "
+         color: $highlightColor
+         font-weight: bold
+         font-size: 1.2em
+
+
+// SPECIFIC CONTENTS
+#services
+   ::selection
+      background: $highlightColor
+   ::-moz-selection
+      background: $highlightColor
+
+#about
+   ::selection
+      background: $secondHighlightColor
+   ::-moz-selection
+      background: $secondHighlightColor
+
+   .three-sections
+      +clearfix
+
+      section:nth-child(3n+2), section:nth-child(3n+1)
+         background: url("../images/right_arrow.gif") no-repeat 94% 40px
+
+
+.team
+
+   .team-member
+      +column(4)
+      margin-top: 30px
+      padding-left: 0
+
+      .member-img
+         border: 1px solid $secondaryColor
+
+      .member-name
+         background: $darkColor
+         color: white
+         width: 172px
+         text-align: center
+         padding: 2px
+         font-weight: bold
+         font-size: .7em
+         margin-bottom: 20px
+         margin-top: -3px
+
+      .description
+         padding-right: 60px
+         overflow: hidden
+         +transition(all .3s)
+         max-height: 1000px
+
+         &.excerpt
+            max-height: 185px
+            color: $secondaryColor - #222
+
+      .more-content
+         +include-image(more_arrow)
+         text-align: center
+         margin: 30px auto auto 120px
+
+#why
+   ::selection
+      background: $thirdHighlightColor
+   ::-moz-selection
+      background: $thirdHighlightColor
+
+   .strong-introduction
+      padding-top: 80px
+      padding-right: 200px
+      padding-bottom: 30px
+      +offsetBy(3)
+      +column(9)
+
+   .list-title, .points-list
+      display: inline
+
+#contact
+   +column(12)
+   +clearfix
+   padding-top: 150px
+   padding-bottom: 200px
+
+#main-footer
+   position: relative
+
+   p.copyright
+      float: right
+      font-size: .7em
+
+   .se-link
+      position: relative
+      bottom: -12px
+      margin-left: 20px
+
+   .sim-link
+      position: relative
+      bottom: -6px
+      margin: 0 50px 0 20px
+
+   .top-link
+      text-indent: 0
+      width: auto
+      padding-right: 26px
+      display: inline
+      height: auto
+      background-position: right -12px
+      font-size: .8em
+
+
+.top-link
+   +include-image(top_arrow_dark)
