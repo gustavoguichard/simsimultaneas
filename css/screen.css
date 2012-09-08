@@ -1791,7 +1791,7 @@ blockquote {
     -o-transition: all 0.2s;
     transition: all 0.2s; }
     /* line 119, ../sass/screen.sass */
-    #main-header a.main-menu-link:hover {
+    #main-header a.main-menu-link:hover, #main-header li.main-menu-item.current a {
       background: black;
       color: white;
       text-decoration: none;
@@ -1807,6 +1807,12 @@ blockquote {
       -moz-box-shadow: 0 0 3px rgba(255, 255, 255, 0.9) inset;
       box-shadow: 0 0 3px rgba(255, 255, 255, 0.9) inset; }
   /* line 131, ../sass/screen.sass */
+  #main-header li.main-menu-item.current a {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    top: 0; }
+  /* line 136, ../sass/screen.sass */
   #main-header .top-link {
     padding: 0 8px;
     position: relative;
@@ -1815,10 +1821,10 @@ blockquote {
     -moz-transition: bottom 0.3s;
     -o-transition: bottom 0.3s;
     transition: bottom 0.3s; }
-    /* line 137, ../sass/screen.sass */
+    /* line 142, ../sass/screen.sass */
     #main-header .top-link:hover {
       bottom: 4px; }
-  /* line 142, ../sass/screen.sass */
+  /* line 147, ../sass/screen.sass */
   #main-header #logo-group #logo {
     display: block;
     float: left;
@@ -1832,7 +1838,7 @@ blockquote {
     background-image: url('../images/logo.png?1346806968');
     background-repeat: no-repeat;
     background-position: 0 0; }
-  /* line 151, ../sass/screen.sass */
+  /* line 156, ../sass/screen.sass */
   #main-header #logo-group .sub-title {
     float: left;
     color: #e02227;
@@ -1840,14 +1846,14 @@ blockquote {
     position: relative;
     top: 31px;
     left: 20px; }
-  /* line 159, ../sass/screen.sass */
+  /* line 164, ../sass/screen.sass */
   #main-header.highlight {
     color: white;
     padding: 10px 20px 10px 40px; }
-    /* line 163, ../sass/screen.sass */
+    /* line 168, ../sass/screen.sass */
     #main-header.highlight a.main-menu-link {
       color: white; }
-    /* line 166, ../sass/screen.sass */
+    /* line 171, ../sass/screen.sass */
     #main-header.highlight .top-link {
       background-position: -118px 0;
       text-indent: -119988px;
@@ -1856,22 +1862,22 @@ blockquote {
       display: block;
       width: 11px;
       height: 13px; }
-    /* line 170, ../sass/screen.sass */
+    /* line 175, ../sass/screen.sass */
     #main-header.highlight #logo-group #logo {
       background-position: left bottom; }
-    /* line 172, ../sass/screen.sass */
+    /* line 177, ../sass/screen.sass */
     #main-header.highlight #logo-group .sub-title {
       visibility: hidden; }
-  /* line 175, ../sass/screen.sass */
+  /* line 180, ../sass/screen.sass */
   #main-header.services-area {
     background: #e02227; }
-  /* line 177, ../sass/screen.sass */
+  /* line 182, ../sass/screen.sass */
   #main-header.about-area {
     background: #f6891e; }
-  /* line 179, ../sass/screen.sass */
+  /* line 184, ../sass/screen.sass */
   #main-header.why-area {
     background: #ed2870; }
-  /* line 183, ../sass/screen.sass */
+  /* line 188, ../sass/screen.sass */
   #main-header #main-menu {
     margin: 0;
     padding: 0;
@@ -1907,17 +1913,17 @@ blockquote {
       #main-header #main-menu li.last {
         padding-right: 0; }
 
-/* line 190, ../sass/screen.sass */
+/* line 195, ../sass/screen.sass */
 #main {
   width: 1000px;
   max-width: 100%;
   min-width: 768px;
   margin: 0 auto; }
 
-/* line 193, ../sass/screen.sass */
+/* line 198, ../sass/screen.sass */
 .content-area {
   padding: 140px 0 240px; }
-  /* line 196, ../sass/screen.sass */
+  /* line 201, ../sass/screen.sass */
   .content-area h1.big-call-out {
     font-family: "Arial Black", Arial, sans-serif;
     font-size: 5em;
@@ -1925,7 +1931,7 @@ blockquote {
     line-height: 1.1em;
     margin-bottom: 70px; }
 
-/* line 203, ../sass/screen.sass */
+/* line 208, ../sass/screen.sass */
 article.three-sections {
   *zoom: 1; }
   /* line 4, ../../../../../Library/Ruby/Gems/1.8/gems/zurb-foundation-3.0.9/scss/foundation/mixins/_clearfix.scss */
@@ -1935,15 +1941,15 @@ article.three-sections {
   /* line 5, ../../../../../Library/Ruby/Gems/1.8/gems/zurb-foundation-3.0.9/scss/foundation/mixins/_clearfix.scss */
   article.three-sections:after {
     clear: both; }
-  /* line 206, ../sass/screen.sass */
+  /* line 211, ../sass/screen.sass */
   article.three-sections section {
     width: 33.33333%;
     padding-left: 0; }
-    /* line 210, ../sass/screen.sass */
+    /* line 215, ../sass/screen.sass */
     article.three-sections section p {
       padding-right: 40px; }
 
-/* line 213, ../sass/screen.sass */
+/* line 218, ../sass/screen.sass */
 article.two-sections {
   *zoom: 1; }
   /* line 4, ../../../../../Library/Ruby/Gems/1.8/gems/zurb-foundation-3.0.9/scss/foundation/mixins/_clearfix.scss */
@@ -1953,14 +1959,14 @@ article.two-sections {
   /* line 5, ../../../../../Library/Ruby/Gems/1.8/gems/zurb-foundation-3.0.9/scss/foundation/mixins/_clearfix.scss */
   article.two-sections:after {
     clear: both; }
-  /* line 216, ../sass/screen.sass */
+  /* line 221, ../sass/screen.sass */
   article.two-sections .article-aside {
     width: 25%; }
-  /* line 219, ../sass/screen.sass */
+  /* line 224, ../sass/screen.sass */
   article.two-sections .article-content {
     width: 75%; }
 
-/* line 222, ../sass/screen.sass */
+/* line 227, ../sass/screen.sass */
 .form-link {
   margin-bottom: 0;
   color: #a1a3a5;
@@ -1969,69 +1975,69 @@ article.two-sections {
   display: block;
   line-height: 4em !important;
   height: 34px; }
-  /* line 232, ../sass/screen.sass */
+  /* line 237, ../sass/screen.sass */
   .form-link.orcamento-link {
     background-position: -81px -26px;
     padding-left: 44px; }
-  /* line 236, ../sass/screen.sass */
+  /* line 241, ../sass/screen.sass */
   .form-link.contact-link {
     background-position: 0 -108px;
     padding-left: 44px; }
 
-/* line 240, ../sass/screen.sass */
+/* line 245, ../sass/screen.sass */
 .strong-introduction {
   font-size: 1.2em;
   line-height: 1.3em;
   position: relative;
   top: -30px;
   margin-bottom: 24px; }
-  /* line 247, ../sass/screen.sass */
+  /* line 252, ../sass/screen.sass */
   .strong-introduction h2, .strong-introduction strong, .strong-introduction .form-link, .strong-introduction ul {
     display: inline; }
-  /* line 250, ../sass/screen.sass */
+  /* line 255, ../sass/screen.sass */
   .strong-introduction h2, .strong-introduction strong, .strong-introduction .form-link {
     font-size: 1.2em; }
-  /* line 253, ../sass/screen.sass */
+  /* line 258, ../sass/screen.sass */
   .strong-introduction p {
     font-size: 1.1em;
     line-height: 1.2em;
     margin-bottom: 23px; }
 
-/* line 259, ../sass/screen.sass */
+/* line 264, ../sass/screen.sass */
 .services-list li, .points-list li {
   display: inline; }
 
-/* line 262, ../sass/screen.sass */
+/* line 267, ../sass/screen.sass */
 .points-list {
   font-size: 1.1em;
   font-style: italic; }
-  /* line 267, ../sass/screen.sass */
+  /* line 272, ../sass/screen.sass */
   .points-list li {
     padding-left: 3px; }
-    /* line 270, ../sass/screen.sass */
+    /* line 275, ../sass/screen.sass */
     .points-list li:nth-child(2n) {
       font-weight: bold; }
-    /* line 273, ../sass/screen.sass */
+    /* line 278, ../sass/screen.sass */
     .points-list li:before {
       content: " /// ";
       color: #e02227;
       font-weight: bold;
       font-size: 1.2em; }
 
-/* line 282, ../sass/screen.sass */
+/* line 287, ../sass/screen.sass */
 #services ::selection {
   background: #e02227; }
-/* line 284, ../sass/screen.sass */
+/* line 289, ../sass/screen.sass */
 #services ::-moz-selection {
   background: #e02227; }
 
-/* line 288, ../sass/screen.sass */
+/* line 293, ../sass/screen.sass */
 #about ::selection {
   background: #f6891e; }
-/* line 290, ../sass/screen.sass */
+/* line 295, ../sass/screen.sass */
 #about ::-moz-selection {
   background: #f6891e; }
-/* line 293, ../sass/screen.sass */
+/* line 298, ../sass/screen.sass */
 #about .three-sections {
   *zoom: 1; }
   /* line 4, ../../../../../Library/Ruby/Gems/1.8/gems/zurb-foundation-3.0.9/scss/foundation/mixins/_clearfix.scss */
@@ -2041,19 +2047,19 @@ article.two-sections {
   /* line 5, ../../../../../Library/Ruby/Gems/1.8/gems/zurb-foundation-3.0.9/scss/foundation/mixins/_clearfix.scss */
   #about .three-sections:after {
     clear: both; }
-  /* line 296, ../sass/screen.sass */
+  /* line 301, ../sass/screen.sass */
   #about .three-sections section:nth-child(3n+2), #about .three-sections section:nth-child(3n+1) {
     background: url("../images/right_arrow.gif") no-repeat 94% 40px; }
 
-/* line 302, ../sass/screen.sass */
+/* line 307, ../sass/screen.sass */
 .team .team-member {
   width: 33.33333%;
   margin-top: 30px;
   padding-left: 0; }
-  /* line 307, ../sass/screen.sass */
+  /* line 312, ../sass/screen.sass */
   .team .team-member .member-img {
     border: 1px solid #a1a3a5; }
-  /* line 310, ../sass/screen.sass */
+  /* line 315, ../sass/screen.sass */
   .team .team-member .member-name {
     background: #222222;
     color: white;
@@ -2064,7 +2070,7 @@ article.two-sections {
     font-size: 0.7em;
     margin-bottom: 20px;
     margin-top: -3px; }
-  /* line 321, ../sass/screen.sass */
+  /* line 326, ../sass/screen.sass */
   .team .team-member .description {
     padding-right: 60px;
     overflow: hidden;
@@ -2073,11 +2079,7 @@ article.two-sections {
     -o-transition: all 0.3s;
     transition: all 0.3s;
     max-height: 1000px; }
-    /* line 327, ../sass/screen.sass */
-    .team .team-member .description.excerpt {
-      max-height: 185px;
-      color: #7f8183; }
-  /* line 331, ../sass/screen.sass */
+  /* line 332, ../sass/screen.sass */
   .team .team-member .more-content {
     background-position: -67px -60px;
     text-indent: -119988px;
@@ -2087,25 +2089,45 @@ article.two-sections {
     width: 14px;
     height: 14px;
     text-align: center;
-    margin: 30px auto auto 120px; }
+    margin: 30px auto auto 120px;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    -webkit-transition: all 1s;
+    -moz-transition: all 1s;
+    -o-transition: all 1s;
+    transition: all 1s; }
+  /* line 340, ../sass/screen.sass */
+  .team .team-member.excerpt .description {
+    max-height: 185px;
+    color: #7f8183; }
+  /* line 344, ../sass/screen.sass */
+  .team .team-member.excerpt .more-content {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg); }
 
-/* line 337, ../sass/screen.sass */
+/* line 348, ../sass/screen.sass */
 #why ::selection {
   background: #ed2870; }
-/* line 339, ../sass/screen.sass */
+/* line 350, ../sass/screen.sass */
 #why ::-moz-selection {
   background: #ed2870; }
-/* line 342, ../sass/screen.sass */
+/* line 353, ../sass/screen.sass */
 #why .strong-introduction {
   padding-top: 30px;
   padding-right: 200px;
   padding-bottom: 0;
   width: 100%; }
-/* line 349, ../sass/screen.sass */
+/* line 360, ../sass/screen.sass */
 #why .list-title, #why .points-list {
   display: inline; }
 
-/* line 352, ../sass/screen.sass */
+/* line 363, ../sass/screen.sass */
 #contact {
   width: 100%;
   *zoom: 1;
@@ -2119,25 +2141,25 @@ article.two-sections {
   #contact:after {
     clear: both; }
 
-/* line 358, ../sass/screen.sass */
+/* line 369, ../sass/screen.sass */
 #main-footer {
   position: relative;
   width: 100%; }
-  /* line 362, ../sass/screen.sass */
+  /* line 373, ../sass/screen.sass */
   #main-footer p.copyright {
     float: right;
     font-size: 0.7em; }
-  /* line 366, ../sass/screen.sass */
+  /* line 377, ../sass/screen.sass */
   #main-footer .se-link {
     position: relative;
     bottom: -12px;
     margin-left: 20px; }
-  /* line 371, ../sass/screen.sass */
+  /* line 382, ../sass/screen.sass */
   #main-footer .sim-link {
     position: relative;
     bottom: -6px;
     margin: 0 50px 0 20px; }
-  /* line 376, ../sass/screen.sass */
+  /* line 387, ../sass/screen.sass */
   #main-footer .top-link {
     text-indent: 0;
     width: auto;
@@ -2147,7 +2169,7 @@ article.two-sections {
     background-position: right -12px;
     font-size: 0.8em; }
 
-/* line 386, ../sass/screen.sass */
+/* line 397, ../sass/screen.sass */
 .top-link {
   background-position: -107px -13px;
   text-indent: -119988px;

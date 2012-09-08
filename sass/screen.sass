@@ -128,6 +128,11 @@ blockquote
          top: 0
          +box-shadow(0 0 3px rgba(#fff, .9) inset)
 
+   li.main-menu-item.current a
+      @extend a.main-menu-link:hover
+      +box-shadow(none)
+      top: 0      
+
    .top-link
       padding: 0 8px
       position: relative
@@ -324,14 +329,20 @@ article.two-sections
          +transition(all .3s)
          max-height: 1000px
 
-         &.excerpt
-            max-height: 185px
-            color: $secondaryColor - #222
-
       .more-content
          +include-image(more_arrow)
          text-align: center
          margin: 30px auto auto 120px
+         +transform(rotate(-90deg))
+         +transition(all 1s)
+
+      &.excerpt
+         .description
+            max-height: 185px
+            color: $secondaryColor - #222
+
+         .more-content
+            +transform(rotate(0deg))
 
 #why
    ::selection

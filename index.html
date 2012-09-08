@@ -15,13 +15,13 @@
       </hgroup>
       <nav id="main-menu">
          <ul>
-            <li class="main-menu-item"><a href="#home" class="main-menu-link">Sim</a></li>
-            <li class="main-menu-item"><a href="#services" class="main-menu-link">Serviços</a></li>
-            <li class="main-menu-item"><a href="#about" class="main-menu-link">Sobre</a></li>
-            <li class="main-menu-item"><a href="#why" class="main-menu-link">Por que a Sim?</a></li>
-            <li class="main-menu-item"><a href="#contact" class="main-menu-link">Orçamento</a></li>
-            <li class="main-menu-item"><a href="#contact" class="main-menu-link">Contato</a></li>
-            <li class="main-menu-item"><a href="#contact" class="main-menu-link">Trabalhe conosco</a></li>
+            <li id="home-item" class="main-menu-item current"><a href="#home" class="main-menu-link">Sim</a></li>
+            <li id="services-item" class="main-menu-item"><a href="#services" class="main-menu-link">Serviços</a></li>
+            <li id="about-item" class="main-menu-item"><a href="#about" class="main-menu-link">Sobre</a></li>
+            <li id="why-item" class="main-menu-item"><a href="#why" class="main-menu-link">Por que a Sim?</a></li>
+            <li id="orcamento-item" class="main-menu-item"><a href="#contact" data-form="orcamento" class="main-menu-link contact-menu-link">Orçamento</a></li>
+            <li id="contact-item" class="main-menu-item"><a href="#contact" data-form="contact" class="main-menu-link contact-menu-link">Contato</a></li>
+            <li id="join-item" class="main-menu-item"><a href="#contact" data-form="join" class="main-menu-link contact-menu-link">Trabalhe conosco</a></li>
             <li class="main-menu-item"><a href="#home" class="top-link">Topo</a></li>
          </ul>
       </nav>
@@ -57,20 +57,21 @@
             </section>
             <section>
                <p>
-                  <a href="#contact" class="orcamento-link form-link" data-form="orcamento">Orçamento</a><br>
-                  <a href="#contact" class="contact-link form-link" data-form="contact">Informações?</a><br>
+                  <a href="#contact" class="orcamento-link form-link contact-menu-link" data-form="orcamento">Orçamento</a><br>
+                  <a href="#contact" class="contact-link form-link contact-menu-link" data-form="contact">Informações?</a><br>
                </p>
                <p>
                   <!-- <strong class="secondary">Tel 3029 8284</strong><br> -->
-                  <strong>Cel 51 8011 7171</strong>
+                  <strong>Cel 51 8011 7171</strong><br>
+                  <a href="mailto:cris@simsimultaneas.com.br">cris@simsimultaneas.com.br</a>
                </p>
-               <p>
+               <!-- <p>
                   <small class="switch-languages">
                      <span class="disabled">português</span>
                      <img src="images/switch_langagues.png" alt="switch language">
                      <a href="#">english</a>
                   </small>
-               </p>
+               </p> -->
             </section>
          </article>
       </section>
@@ -118,7 +119,7 @@
                   <strong>QUER SABER MAIS?</strong>
                </p>
                <p>
-                  <a href="#contact">Faça contato</a>, estamos prontas para ouvir você.
+                  <a href="#contact" class="contact-menu-link" data-form="contact">Faça contato</a>, estamos prontas para ouvir você.
                </p> 
             </section>
          </article>
@@ -238,27 +239,32 @@
          </article>
       </section>
       <section id="contact" class="content-area">
-         <p>
-            <strong>Formulários em breve...</strong>
-         </p>
-         <address class="secondary">
-            <a href="mailto:sim@simsimultaneas.com.br">sim@simsimultaneas.com.br</a><br>
-            Av. Mariland, 298 - 306 <br>
-            Cep: 90440-190 <br>
-            Porto Alegre <br>
-            <strong>Brasil</strong>
-         </address>
-         <p>
-            <!-- <strong class="secondary">Tel 3029 8284</strong><br> -->
-            <strong>Cel 51 8011 7171</strong>
-         </p>
+         <div id="form-contact" class="form-section">
+            <p>
+               <!-- <strong class="secondary">Tel 3029 8284</strong><br> -->
+               <a href="mailto:sim@simsimultaneas.com.br">sim@simsimultaneas.com.br</a><br>
+               <strong>Cel 51 8011 7171</strong>
+            </p>
+            <address class="secondary">
+               Av. Mariland, 298 - 306 <br>
+               Cep: 90440-190 <br>
+               Porto Alegre <br>
+               <strong>Brasil</strong>
+            </address>
+         </div>
+         <div id="form-orcamento" class="form-section hidden">
+            <h1 class="big-call-out">Em breve...</h1>
+         </div>
+         <div id="form-join" class="form-section hidden">
+            <h1 class="big-call-out">Em breve...</h1>
+         </div>
       </section>
       <footer id="main-footer">
          <p class="copyright">
             Projeto desenvolvido por <a href="http://sambaestudio.com.br"><img class="se-link" src="images/se_link.png" alt="Samba Estúdio" /></a>
          </p>
          <p>
-            Até breve! <a href="#"><img class="sim-link" src="images/sim_link.png" alt="Sim - Traduções Simultâneas" /></a> <a href="#" class="top-link">voltar</a>
+            Até breve! <a href="#"><img class="sim-link" src="images/sim_link.png" alt="Sim - Traduções Simultâneas" /></a> <a href="#home" class="top-link">voltar</a>
          </p>
       </footer>
    </div>
