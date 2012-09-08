@@ -205,10 +205,10 @@ blockquote
       line-height: 1.1em
       margin-bottom: 70px
 
-article.three-sections
+.three-sections
    +clearfix
 
-   section
+   .column
       +column(4)
       padding-left: 0
 
@@ -241,6 +241,10 @@ article.two-sections
    &.contact-link
       +sprites-sprite(contact_small)
       padding-left: sprites-sprite-width(contact_small)+10
+
+   &.join-link
+      +sprites-sprite(join_small)
+      padding-left: sprites-sprite-width(join_small)+10
 
 .strong-introduction
    font-size: 1.2em
