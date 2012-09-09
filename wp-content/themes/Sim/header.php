@@ -15,7 +15,7 @@
 <title>SIM | Traduções simultâneas</title>
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
-<script src="js/foundation/modernizr.foundation.js" type="text/javascript"></script>
+<script src="<?php bloginfo('template_url');?>/js/foundation/modernizr.foundation.js"></script>
 <?php	wp_head();?>
 </head>
 <body <?php body_class(); ?>>

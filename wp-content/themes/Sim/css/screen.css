@@ -2179,3 +2179,42 @@ article.two-sections {
   display: block;
   width: 11px;
   height: 13px; }
+
+/* line 399, ../sass/screen.sass */
+input, textarea {
+  margin-bottom: 0;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
+  border-width: 0 0 1px 0 !important; }
+  /* line 404, ../sass/screen.sass */
+  input:focus, textarea:focus {
+    -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3) inset !important;
+    -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3) inset !important;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3) inset !important; }
+
+/* line 407, ../sass/screen.sass */
+label {
+  color: #888888;
+  font-weight: bold; }
+
+/* line 411, ../sass/screen.sass */
+.button {
+  background: black !important;
+  border: none; }
+
+/* line 415, ../sass/screen.sass */
+.upload-button {
+  padding-top: 35px;
+  margin: 30px auto 50px;
+  background: url("../images/upload_button.png") no-repeat center top; }
+
+/* line 420, ../sass/screen.sass */
+.form-image {
+  margin: 0 auto;
+  text-align: center;
+  display: block; }
+
+/* line 425, ../sass/screen.sass */
+.servico-options {
+  padding: 40px 0; }

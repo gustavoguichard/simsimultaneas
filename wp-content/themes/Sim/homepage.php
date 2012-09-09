@@ -45,12 +45,21 @@ get_header(); ?>
 		   	</article>
 			<?php else:?>
 				<article class="two-sections">
+	            <?php if($layout_style == "Sidebar na esquerda"):?>
+					<aside class="article-aside">
+	               <?php echo $first_column;?>
+	            </aside>
+	            <section class="article-content">
+	            	<?php echo $second_column;?>
+	            </section>
+		         <?php else:?>
 	            <section class="article-content">
 	               <?php echo $first_column;?>
 	            </section>
-	            <aside class="article-aside">
+		         <aside class="article-aside">
 	            	<?php echo $second_column;?>
 	            </aside>
+			      <?php endif;?>
 		   	</article>
 			<?php endif;?>
 		<?php endwhile; endif; wp_reset_query(); ?>
@@ -83,12 +92,21 @@ get_header(); ?>
 		   	</article>
 			<?php else:?>
 				<article class="two-sections">
+	            <?php if($layout_style == "Sidebar na esquerda"):?>
+					<aside class="article-aside">
+	               <?php echo $first_column;?>
+	            </aside>
+	            <section class="article-content">
+	            	<?php echo $second_column;?>
+	            </section>
+		         <?php else:?>
 	            <section class="article-content">
 	               <?php echo $first_column;?>
 	            </section>
-	            <aside class="article-aside">
+		         <aside class="article-aside">
 	            	<?php echo $second_column;?>
 	            </aside>
+			      <?php endif;?>
 		   	</article>
 			<?php endif;?>
 		<?php endwhile; endif; wp_reset_query(); ?>
@@ -121,12 +139,21 @@ get_header(); ?>
 		   	</article>
 			<?php else:?>
 				<article class="two-sections">
+	            <?php if($layout_style == "Sidebar na esquerda"):?>
+					<aside class="article-aside">
+	               <?php echo $first_column;?>
+	            </aside>
+	            <section class="article-content">
+	            	<?php echo $second_column;?>
+	            </section>
+		         <?php else:?>
 	            <section class="article-content">
 	               <?php echo $first_column;?>
 	            </section>
-	            <aside class="article-aside">
+		         <aside class="article-aside">
 	            	<?php echo $second_column;?>
 	            </aside>
+			      <?php endif;?>
 		   	</article>
 			<?php endif;?>
 		<?php endwhile; endif; wp_reset_query(); ?>
@@ -173,12 +200,21 @@ get_header(); ?>
 		   	</article>
 			<?php else:?>
 				<article class="two-sections">
+	            <?php if($layout_style == "Sidebar na esquerda"):?>
+					<aside class="article-aside">
+	               <?php echo $first_column;?>
+	            </aside>
+	            <section class="article-content">
+	            	<?php echo $second_column;?>
+	            </section>
+		         <?php else:?>
 	            <section class="article-content">
 	               <?php echo $first_column;?>
 	            </section>
-	            <aside class="article-aside">
+		         <aside class="article-aside">
 	            	<?php echo $second_column;?>
 	            </aside>
+			      <?php endif;?>
 		   	</article>
 			<?php endif;?>
 		<?php endwhile; endif; wp_reset_query(); ?>
@@ -193,11 +229,10 @@ get_header(); ?>
 		            <?php echo nl2br($title);?>	
 		         </h1>
 		      <?php endif;?>
-		      <?php if(get_the_content()):?>
-		      	<header class="strong-introduction">
-		      		<?php the_content();?>	
-		      	</header>
-			   <?php endif;?>
+	      	<header class="strong-introduction">
+	      		<?php the_content();?>
+	      		<img src="<?php bloginfo('template_url');?>/images/contact.png" class="form-image" alt="Trabalhe conosco" />
+	      	</header>
 			   <?php if($layout_style == "3 Colunas"):?>
 			   	<article class="three-sections<?php if($arrow_between){echo " arrow-between";}?>">
 			   		<section class="column">
@@ -212,12 +247,21 @@ get_header(); ?>
 			   	</article>
 				<?php else:?>
 					<article class="two-sections">
+		            <?php if($layout_style == "Sidebar na esquerda"):?>
+						<aside class="article-aside">
+		               <?php echo $first_column;?>
+		            </aside>
+		            <section class="article-content">
+		            	<?php echo $second_column;?>
+		            </section>
+			         <?php else:?>
 		            <section class="article-content">
 		               <?php echo $first_column;?>
 		            </section>
-		            <aside class="article-aside">
+			         <aside class="article-aside">
 		            	<?php echo $second_column;?>
 		            </aside>
+				      <?php endif;?>
 			   	</article>
 				<?php endif;?>
 			<?php endwhile; endif; wp_reset_query(); ?>
@@ -231,11 +275,10 @@ get_header(); ?>
 		            <?php echo nl2br($title);?>	
 		         </h1>
 		      <?php endif;?>
-		      <?php if(get_the_content()):?>
-		      	<header class="strong-introduction">
-		      		<?php the_content();?>	
-		      	</header>
-			   <?php endif;?>
+	      	<header class="strong-introduction">
+	      		<?php the_content();?>
+					<img src="<?php bloginfo('template_url');?>/images/orcamento.png" class="form-image" alt="Trabalhe conosco" />
+	      	</header>
 			   <?php if($layout_style == "3 Colunas"):?>
 			   	<article class="three-sections<?php if($arrow_between){echo " arrow-between";}?>">
 			   		<section class="column">
@@ -250,12 +293,21 @@ get_header(); ?>
 			   	</article>
 				<?php else:?>
 					<article class="two-sections">
+		            <?php if($layout_style == "Sidebar na esquerda"):?>
+						<aside class="article-aside">
+		               <?php echo $first_column;?>
+		            </aside>
+		            <section class="article-content">
+		            	<?php echo $second_column;?>
+		            </section>
+			         <?php else:?>
 		            <section class="article-content">
 		               <?php echo $first_column;?>
 		            </section>
-		            <aside class="article-aside">
+			         <aside class="article-aside">
 		            	<?php echo $second_column;?>
 		            </aside>
+				      <?php endif;?>
 			   	</article>
 				<?php endif;?>
 			<?php endwhile; endif; wp_reset_query(); ?>
@@ -269,11 +321,10 @@ get_header(); ?>
 		            <?php echo nl2br($title);?>	
 		         </h1>
 		      <?php endif;?>
-		      <?php if(get_the_content()):?>
-		      	<header class="strong-introduction">
-		      		<?php the_content();?>	
-		      	</header>
-			   <?php endif;?>
+	      	<header class="strong-introduction">
+	      		<?php the_content();?>	
+	      		<img src="<?php bloginfo('template_url');?>/images/join.png" class="form-image" alt="Trabalhe conosco" />
+	      	</header>
 			   <?php if($layout_style == "3 Colunas"):?>
 			   	<article class="three-sections<?php if($arrow_between){echo " arrow-between";}?>">
 			   		<section class="column">
@@ -288,12 +339,21 @@ get_header(); ?>
 			   	</article>
 				<?php else:?>
 					<article class="two-sections">
+						<?php if($layout_style == "Sidebar na esquerda"):?>
+						<aside class="article-aside">
+		               <?php echo $first_column;?>
+		            </aside>
+		            <section class="article-content">
+		            	<?php echo $second_column;?>
+		            </section>
+			         <?php else:?>
 		            <section class="article-content">
 		               <?php echo $first_column;?>
 		            </section>
-		            <aside class="article-aside">
+			         <aside class="article-aside">
 		            	<?php echo $second_column;?>
 		            </aside>
+				      <?php endif;?>
 			   	</article>
 				<?php endif;?>
 			<?php endwhile; endif; wp_reset_query(); ?>

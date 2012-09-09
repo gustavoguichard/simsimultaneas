@@ -72,11 +72,11 @@ $ ->
          $scrollToThis = $parent
       else
          $scrollToThis = $parent.find('.description').first()
-      $('html,body', document).animate({scrollTop:$scrollToThis.offset().top - marginTop+30}, 500)
+      $('html,body', document).animate({scrollTop:$scrollToThis.offset().top - 120}, 500)
 
    # CHANGE CONTACT SCREEN
    changeForm = ->
-      $('#contact div').hide()
+      $('.form-section').hide()
       $('#form-'+contact_state).fadeIn()
 
    # CHANGE CONTACT CLICK
@@ -86,3 +86,16 @@ $ ->
          contact_state = new_data
          setHeaderBarState('#contact')
          changeForm()
+
+   # ORCAMENTO SCRIPTS
+   $('#form-orcamento').foundationCustomForms()
+
+   $('.servico-options').hide()
+   $('#servico-choice').on "change", ->
+      $('.servico-options').hide()
+      if $("input:checked", @).val() == "simultânea/consecutiva"
+         $('#tags-for-simultanea').fadeIn()
+      else if $("input:checked", @).val() == "juramentada"
+         $('#tags-for-juramentada').fadeIn()
+      else
+         $('#tags-for-escrita').fadeIn()

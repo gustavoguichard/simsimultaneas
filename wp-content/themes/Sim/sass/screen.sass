@@ -394,3 +394,33 @@ article.two-sections
 
 .top-link
    +include-image(top_arrow_dark)
+
+// FORMS
+input, textarea
+   margin-bottom: 0
+   +box-shadow(none !important)
+   border-width: 0 0 1px 0 !important
+
+   &:focus
+      +box-shadow(0 1px 5px rgba(0,0,0,.3) inset !important)
+
+label
+   color: #888
+   font-weight: bold
+
+.button
+   background: black !important
+   border: none
+
+.upload-button
+   padding-top: 35px
+   margin: 30px auto 50px
+   background: url("../images/upload_button.png") no-repeat center top
+
+.form-image
+   margin: 0 auto
+   text-align: center
+   display: block
+
+.servico-options
+   padding: 40px 0
