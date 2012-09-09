@@ -6,7 +6,7 @@ $ ->
    $why_area = $('#why')
    $contact_area = $('#contact')
    $mainHeader = $('#main-header')
-   marginTop = 150
+   marginTop = 250
    contact_state = 'contact'
    current_area = '#home'
 

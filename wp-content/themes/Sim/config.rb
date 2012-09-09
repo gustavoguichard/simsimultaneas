@@ -1,4 +1,5 @@
 # Require any additional compass plugins here.
+require "zurb-foundation.rb";
 
 # Set this to the root of your project when deployed:
 http_path = "/"
@@ -7,7 +8,7 @@ sass_dir = "sass"
 images_dir = "images"
 javascripts_dir = "js"
 
-output_style = :compressed
+output_style = :nested
 environment = :development
 
 relative_assets = true
@@ -15,7 +16,6 @@ relative_assets = true
 # To disable debugging comments that display the original location of your selectors. Uncomment:
 # line_comments = false
 color_output = false
-
 
 # If you prefer the indented syntax, you might want to regenerate this
 # project again passing --syntax sass, or you can uncomment this:

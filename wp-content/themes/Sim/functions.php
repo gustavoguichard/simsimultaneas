@@ -5,54 +5,29 @@
  * @since Twenty Eleven 1.0
  */
 
+add_action( 'after_setup_theme', 'sim_setup' );
 
-add_action( 'after_setup_theme', 'samba_setup' );
+if ( ! function_exists( 'sim_setup' ) ):
 
-if ( ! function_exists( 'samba_setup' ) ):
-
-function samba_setup() {
+function sim_setup() {
 
 	load_theme_textdomain( 'twentyeleven', get_template_directory() . '/languages' );
 	add_editor_style();
-
-	// This theme uses wp_nav_menu() in one location.
-	register_nav_menu( 'primary', __( 'Primary Menu', 'twentyeleven' ) );
-
-	// This theme uses Featured Images (also known as post thumbnails) for per-post/per-page Custom Header images
 	add_theme_support( 'post-thumbnails' );
-
-	// We'll be using post thumbnails for custom header images on posts and pages.
-	// We want them to be the size of the header image that we just defined
-	// Larger images will be auto-cropped to fit, smaller ones will be ignored. See header.php.
-	set_post_thumbnail_size( 900, 6000, true );
-
-	// Add Twenty Eleven's custom image sizes.
-	// Used for large feature (header) images.
-	add_image_size( 'clients-thumb', 300, 85, false);
+	set_post_thumbnail_size( 170, 150, true );
+	// add_image_size( 'clients-thumb', 300, 85, false);
 }
 endif; // twentyeleven_setup
 
-/**
- * Get our wp_nav_menu() fallback, wp_page_menu(), to show a home link.
- */
-function twentyeleven_page_menu_args( $args ) {
-	$args['show_home'] = true;
-	return $args;
+function get_area_by_title($page_title)
+{
+  global $wpdb;
+  $post = $wpdb->get_var( $wpdb->prepare( "SELECT ID FROM $wpdb->posts WHERE post_title = %s AND post_type='areas'", $page_title ));
+  if ( $post )
+      return $post;
+
+  return null;
 }
-add_filter( 'wp_page_menu_args', 'twentyeleven_page_menu_args' );
-
-function twentyeleven_body_classes( $classes ) {
-
-	if ( function_exists( 'is_multi_author' ) && ! is_multi_author() )
-		$classes[] = 'single-author';
-
-	if ( is_singular() && ! is_home() && ! is_page_template( 'showcase.php' ) && ! is_page_template( 'sidebar-page.php' ) )
-		$classes[] = 'singular';
-
-	return $classes;
-}
-add_filter( 'body_class', 'twentyeleven_body_classes' );
-
 
 // SHORTCODES
 function left_section( $attr, $content = null ) {
@@ -70,135 +45,130 @@ function full_section( $attr, $content = null ) {
 }
 add_shortcode('cheio', 'full_section'); 
 
-function coord_link() {
-  return '<a href="http://maps.google.com/maps?q=Samba+Est%C3%BAdio,+Porto+Alegre+-+Rio+Grande+do+Sul,+Brasil&hl=pt-BR&ie=UTF8&ll=-30.004747,-51.194229&spn=0.092464,0.126686&sll=37.0625,-95.677068&sspn=43.123021,64.863281&oq=samba+es&hq=Samba+Est%C3%BAdio,&hnear=Porto+Alegre+-+Rio+Grande+do+Sul,+Brasil&t=m&z=13" target="_blank" id="coordinates" class="social">Veja no Google Maps</a>';
+function contact_link() {
+  return '<a href="#contact" class="contact-link form-link contact-menu-link" data-form="contact">Informações</a>';
 }
-add_shortcode('coordenadas', 'coord_link');
+add_shortcode('contato', 'contact_link');
+
+function simple_contact_link( $attr, $content = null ) {
+  return do_shortcode('<a href="#contact" class="contact-menu-link" data-form="contact">' . $content . '</a>');;
+}
+add_shortcode('simples-contato', 'simple_contact_link');
+
+function orcamento_link() {
+  return '<a href="#contact" class="orcamento-link form-link contact-menu-link" data-form="orcamento">Orçamento</a>';
+}
+add_shortcode('orcamento', 'orcamento_link');
+
+function simple_orcamento_link( $attr, $content = null ) {
+  return do_shortcode('<a href="#contact" class="contact-menu-link" data-form="orcamento">' . $content . '</a>');;
+}
+add_shortcode('simples-orcamento', 'simple_orcamento_link');
+
+function join_link() {
+  return '<a href="#contact" class="join-link form-link contact-menu-link" data-form="join">Trabalhe conosco</a>';
+}
+add_shortcode('trabalhe', 'join_link');
+
+function simple_join_link( $attr, $content = null ) {
+  return do_shortcode('<a href="#contact" class="contact-menu-link" data-form="join">' . $content . '</a>');;
+}
+add_shortcode('simples-trabalhe', 'simple_join_link');
 
 // FUNCOES
-function get_permalink_by_name($page_name)
-{
-	global $post;
-	global $wpdb;
-	$pageid_name = $wpdb->get_var("SELECT ID FROM $wpdb->posts WHERE post_name = '".$page_name."'");
-	return get_permalink($pageid_name);
-}
-
-function get_permalink_by_post_title($page_title)
-{
-	global $wpdb;
-  $post = $wpdb->get_var( $wpdb->prepare( "SELECT ID FROM $wpdb->posts WHERE post_title = %s AND post_type='post'", $page_title ));
-  if ( $post )
-      return get_permalink($post);
-
-  return null;
-}
-
-function get_post_by_title($page_title)
-{
-  global $wpdb;
-  $post = $wpdb->get_var( $wpdb->prepare( "SELECT ID FROM $wpdb->posts WHERE post_title = %s AND post_type='post'", $page_title ));
-  if ( $post )
-      return $post;
-
-  return null;
-}
-
-function get_case_by_title($page_title, $output = OBJECT) {
-  global $wpdb;
-  $post = $wpdb->get_var( $wpdb->prepare( "SELECT ID FROM $wpdb->posts WHERE post_title = %s AND post_type='cases'", $page_title ));
-  if ( $post )
-      return get_post($post, $output);
-
-  return null;
-}
-
+// function get_permalink_by_name($page_name)
+// {
+// 	global $post;
+// 	global $wpdb;
+// 	$pageid_name = $wpdb->get_var("SELECT ID FROM $wpdb->posts WHERE post_name = '".$page_name."'");
+// 	return get_permalink($pageid_name);
+// }
 
 // CUSTOM POSTS
 /* CUSTOM POST TYPES */
 add_action('init', 'my_cpt_init');
 function my_cpt_init() 
 {
-/* CLIENTES */
-  $labelsClients = array(
-    'name' => 'Clientes',
-    'singular_name' => 'Cliente',
-    'add_new' => 'Novo Cliente',
-    'add_new_item' => 'Adicionar novo Cliente',
-    'edit_item' => 'Editar Cliente',
-    'new_item' => 'Novo Cliente',
-    'view_item' => 'Ver Cliente',
-    'search_items' => 'Procurar Clientes',
-    'not_found' =>  'Não foram encontrados Clientes',
-    'not_found_in_trash' => 'Não há Clientes no lixo', 
+/* AREAS */
+  $labelsAreas = array(
+    'name' => 'Áreas',
+    'singular_name' => 'Área',
+    'add_new' => 'Nova Área',
+    'add_new_item' => 'Adicionar nova Área',
+    'edit_item' => 'Editar Área',
+    'new_item' => 'Nova Área',
+    'view_item' => 'Ver Área',
+    'search_items' => 'Procurar Áreas',
+    'not_found' =>  'Não foram encontradas Áreas',
+    'not_found_in_trash' => 'Não há Áreas no lixo', 
     'parent_item_colon' => '',
-    'menu_name' => 'Clientes'
+    'menu_name' => 'Áreas'
 
   );
-  $argsClients = array(
-    'labels' => $labelsClients,
-    'public' => true,
-    'publicly_queryable' => false,
-    'show_ui' => true,
-    'exclude_from_search' => true,
-    'menu_position' => 10,
-    'show_in_menu' => true, 
-    'query_var' => true,
-    'rewrite' => true,
-    'capability_type' => 'post',
-    'has_archive' => true, 
-    'hierarchical' => false,
-    'supports' => array('title','thumbnail')
-  );
-  register_post_type('clients',$argsClients);
-/* CASES */
-  $labelsCases = array(
-    'name' => 'Cases',
-    'singular_name' => 'Case',
-    'add_new' => 'Novo Case',
-    'add_new_item' => 'Adicionar novo Case',
-    'edit_item' => 'Editar Case',
-    'new_item' => 'Novo Case',
-    'view_item' => 'Ver Case',
-    'search_items' => 'Procurar Cases',
-    'not_found' =>  'Não foram encontrados Cases',
-    'not_found_in_trash' => 'Não há Cases no lixo', 
-    'parent_item_colon' => '',
-    'menu_name' => 'Cases'
-
-  );
-  $argsCases = array(
-    'labels' => $labelsCases,
+  $argsAreas = array(
+    'labels' => $labelsAreas,
     'public' => true,
     'publicly_queryable' => true,
     'show_ui' => true,
     'exclude_from_search' => false,
-    'menu_position' => 4,
-    'show_in_menu' => true, 
+    'menu_position' => 6,
+    'show_in_menu' => true,
     'query_var' => true,
-    // 'rewrite' => array('slug' => 'portfolio', 'with_front' => false),
     'rewrite' => true,
-    'capability_type' => 'post',
+    'capability_type' => 'page',
     'has_archive' => true, 
     'hierarchical' => false,
-    'supports' => array('title','editor')
+    'supports' => array('title', 'editor')
   );
-  register_post_type('cases',$argsCases);
+  register_post_type('areas',$argsAreas);
+// /* MEMBER */
+//   $labelsMembers = array(
+//     'name' => 'Tradutores',
+//     'singular_name' => 'Tradutor',
+//     'add_new' => 'Novo Tradutor',
+//     'add_new_item' => 'Adicionar novo Tradutor',
+//     'edit_item' => 'Editar Tradutor',
+//     'new_item' => 'Novo Tradutor',
+//     'view_item' => 'Ver Tradutor',
+//     'search_items' => 'Procurar Tradutores',
+//     'not_found' =>  'Não foram encontrados Tradutores',
+//     'not_found_in_trash' => 'Não há Tradutores no lixo', 
+//     'parent_item_colon' => '',
+//     'menu_name' => 'Equipe'
+
+//   );
+//   $argsMembers = array(
+//     'labels' => $labelsMembers,
+//     'public' => true,
+//     'publicly_queryable' => true,
+//     'show_ui' => true,
+//     'exclude_from_search' => false,
+//     'menu_position' => 6,
+//     'show_in_menu' => true,
+//     'query_var' => true,
+//     // 'rewrite' => array('slug' => 'portfolio', 'with_front' => false),
+//     'rewrite' => true,
+//     'capability_type' => 'post',
+//     'has_archive' => true, 
+//     'hierarchical' => false,
+//     'supports' => array('title','editor', 'thumbnail')
+//   );
+//   register_post_type('members',$argsMembers);
 }
 
 function change_post_menu_label() {
     global $menu;
     global $submenu;
-    $menu[5][0] = 'Projetos';
-    $submenu['edit.php'][5][0] = 'Projetos';
-    $submenu['edit.php'][10][0] = 'Novo Projeto';
+    $menu[5][0] = 'Equipe';
+    $submenu['edit.php'][5][0] = 'Tradutores';
+    $submenu['edit.php'][10][0] = 'Novo Tradutor';
     echo '';
 }
 
 function change_post_object_label() {
     global $wp_post_types;
     $labels = &$wp_post_types['post']->labels;
-    $labels->name = 'Projeto';
+    $labels->name = 'Tradutor';
 }
 add_action( 'init', 'change_post_object_label' );
 add_action( 'admin_menu', 'change_post_menu_label' );

@@ -23,7 +23,7 @@ add_action('wp_dashboard_setup', 'remove_dashboard_widgets');
  
 function remove_menu_items() {
 	global $menu;
-	$restricted = array(__('Links'), __('Painel'), __('Media'), __('Comments'));
+	$restricted = array(__('Dashboard'), __('Links'), __('Painel'), __('Media'), __('Comments'));
 	end ($menu);
 	while (prev($menu)){
 		$value = explode(' ',$menu[key($menu)][0]);

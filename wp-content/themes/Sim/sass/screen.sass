@@ -79,7 +79,6 @@ blockquote
    font-weight: bold
    color: $secondaryColor
    position: relative
-   quotes:\201C
 
    &:after
       content: "“"
@@ -194,6 +193,26 @@ blockquote
 // CONTENT GENERAL
 #main
    +outerRow
+   
+   h2, ul
+      display: inline
+   
+   ul
+      font-size: 1.1em
+      font-style: italic
+
+      li
+         padding-left: 3px
+         display: inline
+
+         &:nth-child(2n)
+            font-weight: bold
+
+         &:before
+            content: " /// "
+            color: $highlightColor
+            font-weight: bold
+            font-size: 1.2em
 
 .content-area
    padding: 140px 0 240px
@@ -230,7 +249,7 @@ article.two-sections
    color: $secondaryColor
    text-transform: uppercase
    font-size: .7em
-   display: block
+   display: block !important
    line-height: 4em !important
    height: sprites-sprite-height(orcamento_small)
 
@@ -253,9 +272,6 @@ article.two-sections
    top: -30px
    margin-bottom: 24px
 
-   h2, ul
-      display: inline
-
    h2
       font-size: 1.2em
 
@@ -263,28 +279,6 @@ article.two-sections
       font-size: 1.1em
       line-height: 1.2em
       margin-bottom: 23px
-
-.services-list
-   li
-      display: inline
-
-.points-list
-   @extend .services-list
-   font-size: 1.1em
-   font-style: italic
-
-   li
-      padding-left: 3px
-
-      &:nth-child(2n)
-         font-weight: bold
-
-      &:before
-         content: " /// "
-         color: $highlightColor
-         font-weight: bold
-         font-size: 1.2em
-
 
 // SPECIFIC CONTENTS
 #services
@@ -299,11 +293,11 @@ article.two-sections
    ::-moz-selection
       background: $secondHighlightColor
 
-   .three-sections
-      +clearfix
+.three-sections.arrow-between
+   +clearfix
 
-      section:nth-child(3n+2), section:nth-child(3n+1)
-         background: url("../images/right_arrow.gif") no-repeat 94% 40px
+   section:nth-child(3n+2), section:nth-child(3n+1)
+      background: url("../images/right_arrow.gif") no-repeat 94% 40px
 
 
 .team
@@ -361,7 +355,7 @@ article.two-sections
       // +offsetBy(3)
       +column(12)
 
-   .list-title, .points-list
+   .list-title
       display: inline
 
 #contact
