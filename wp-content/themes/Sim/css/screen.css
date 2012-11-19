@@ -2218,3 +2218,7 @@ label {
 /* line 425, ../sass/screen.sass */
 .servico-options {
   padding: 40px 0; }
+
+/* line 428, ../sass/screen.sass */
+.column em {
+  font-size: 0.8em; }
