@@ -414,8 +414,14 @@ label
 
 .upload-button
    padding-top: 35px
-   margin: 30px auto 50px
-   background: url("../images/upload_button.png") no-repeat center top
+   margin: 20px auto
+   +opacity(0)
+   cursor: pointer
+
+span.curriculum
+   background: url("../images/upload_button.png") no-repeat left center
+   display: block
+   +clearfix
 
 .form-image
    margin: 0 auto

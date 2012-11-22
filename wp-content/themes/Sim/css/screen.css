@@ -2206,19 +2206,34 @@ label {
 /* line 415, ../sass/screen.sass */
 .upload-button {
   padding-top: 35px;
-  margin: 30px auto 50px;
-  background: url("../images/upload_button.png") no-repeat center top; }
+  margin: 20px auto;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  cursor: pointer; }
 
-/* line 420, ../sass/screen.sass */
+/* line 421, ../sass/screen.sass */
+span.curriculum {
+  background: url("../images/upload_button.png") no-repeat left center;
+  display: block;
+  *zoom: 1; }
+  /* line 4, ../../../../../../../../Library/Ruby/Gems/1.8/gems/zurb-foundation-3.0.9/scss/foundation/mixins/_clearfix.scss */
+  span.curriculum:before, span.curriculum:after {
+    content: "";
+    display: table; }
+  /* line 5, ../../../../../../../../Library/Ruby/Gems/1.8/gems/zurb-foundation-3.0.9/scss/foundation/mixins/_clearfix.scss */
+  span.curriculum:after {
+    clear: both; }
+
+/* line 426, ../sass/screen.sass */
 .form-image {
   margin: 0 auto;
   text-align: center;
   display: block; }
 
-/* line 425, ../sass/screen.sass */
+/* line 431, ../sass/screen.sass */
 .servico-options {
   padding: 40px 0; }
 
-/* line 428, ../sass/screen.sass */
+/* line 434, ../sass/screen.sass */
 .column em {
   font-size: 0.8em; }
