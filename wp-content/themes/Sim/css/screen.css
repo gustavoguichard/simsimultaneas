@@ -2212,16 +2212,16 @@ label {
   cursor: pointer; }
 
 /* line 421, ../sass/screen.sass */
-span.curriculum {
+span.curriculum, span.file-escrita, span.file-juramentada {
   background: url("../images/upload_button.png") no-repeat left center;
   display: block;
   *zoom: 1; }
   /* line 4, ../../../../../../../../Library/Ruby/Gems/1.8/gems/zurb-foundation-3.0.9/scss/foundation/mixins/_clearfix.scss */
-  span.curriculum:before, span.curriculum:after {
+  span.curriculum:before, span.curriculum:after, span.file-escrita:before, span.file-escrita:after, span.file-juramentada:before, span.file-juramentada:after {
     content: "";
     display: table; }
   /* line 5, ../../../../../../../../Library/Ruby/Gems/1.8/gems/zurb-foundation-3.0.9/scss/foundation/mixins/_clearfix.scss */
-  span.curriculum:after {
+  span.curriculum:after, span.file-escrita:after, span.file-juramentada:after {
     clear: both; }
 
 /* line 426, ../sass/screen.sass */
