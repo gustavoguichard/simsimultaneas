@@ -93,9 +93,9 @@ $ ->
    $('.servico-options').hide()
    $('#servico-choice').on "change", ->
       $('.servico-options').hide()
-      if $("input:checked", @).val() == "simultânea/consecutiva"
+      if $("input:checked", @).val() == "simultânea/consecutiva" || $("input:checked", @).val() == "simultaneous/consecutive translation"
          $('#tags-for-simultanea').fadeIn()
-      else if $("input:checked", @).val() == "juramentada"
+      else if $("input:checked", @).val() == "juramentada" || $("input:checked", @).val() == "public translation"
          $('#tags-for-juramentada').fadeIn()
       else
          $('#tags-for-escrita').fadeIn()
