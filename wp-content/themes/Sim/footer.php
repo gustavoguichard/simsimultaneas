@@ -1,9 +1,10 @@
+<?php global $language;?>
 		<footer id="main-footer">
          <p class="copyright">
-            Projeto desenvolvido por <a href="http://sambaestudio.com.br"><img class="se-link" src="<?php bloginfo('template_url');?>/images/se_link.png" alt="Samba Estúdio" /></a>
+            <?php if($language == 'en-US'){echo 'Project designed by';}else{echo 'Projeto desenvolvido por';}?> <a href="http://sambaestudio.com.br"><img class="se-link" src="<?php bloginfo('template_url');?>/images/se_link.png" alt="Samba Estúdio" /></a>
          </p>
          <p>
-            Até breve! <a href="#"><img class="sim-link" src="<?php bloginfo('template_url');?>/images/sim_link.png" alt="Sim - Traduções Simultâneas" /></a> <a href="#home" class="top-link">voltar</a>
+            <?php if($language == 'en-US'){echo 'See you soon!';}else{echo 'Até breve!';}?> <a href="#"><img class="sim-link" src="<?php bloginfo('template_url');?>/images/sim_link.png" alt="Sim - Traduções Simultâneas" /></a> <a href="#home" class="top-link"><?php if($language == 'en-US'){echo 'back';}else{echo 'voltar';}?></a>
          </p>
       </footer>
    </div>

@@ -33,22 +33,27 @@ function get_area_by_title($page_title)
 function left_section( $attr, $content = null ) {
   return do_shortcode('<section class="left">' . $content . '</section>');
 }
-add_shortcode('esquerda', 'left_section'); 
+add_shortcode('esquerda', 'left_section');
 
 function right_section( $attr, $content = null ) {
   return do_shortcode('<section class="right">' . $content . '</section>');
 }
-add_shortcode('direita', 'right_section'); 
+add_shortcode('direita', 'right_section');
 
 function full_section( $attr, $content = null ) {
   return do_shortcode('<section class="full">' . $content . '</section>');
 }
-add_shortcode('cheio', 'full_section'); 
+add_shortcode('cheio', 'full_section');
 
 function contact_link() {
   return '<a href="#contact" class="contact-link form-link contact-menu-link" data-form="contact">Informações</a>';
 }
 add_shortcode('contato', 'contact_link');
+
+function contact_link_eng() {
+  return '<a href="#contact" class="contact-link form-link contact-menu-link" data-form="contact">Informations</a>';
+}
+add_shortcode('contato-en', 'contact_link_eng');
 
 function simple_contact_link( $attr, $content = null ) {
   return do_shortcode('<a href="#contact" class="contact-menu-link" data-form="contact">' . $content . '</a>');;
@@ -60,6 +65,11 @@ function orcamento_link() {
 }
 add_shortcode('orcamento', 'orcamento_link');
 
+function orcamento_link_eng() {
+  return '<a href="#contact" class="orcamento-link form-link contact-menu-link" data-form="orcamento">Price Estimate</a>';
+}
+add_shortcode('orcamento-en', 'orcamento_link_eng');
+
 function simple_orcamento_link( $attr, $content = null ) {
   return do_shortcode('<a href="#contact" class="contact-menu-link" data-form="orcamento">' . $content . '</a>');;
 }
@@ -69,6 +79,11 @@ function join_link() {
   return '<a href="#contact" class="join-link form-link contact-menu-link" data-form="join">Trabalhe conosco</a>';
 }
 add_shortcode('trabalhe', 'join_link');
+
+function join_link_eng() {
+  return '<a href="#contact" class="join-link form-link contact-menu-link" data-form="join">Join us</a>';
+}
+add_shortcode('trabalhe-en', 'join_link_eng');
 
 function simple_join_link( $attr, $content = null ) {
   return do_shortcode('<a href="#contact" class="contact-menu-link" data-form="join">' . $content . '</a>');;
@@ -87,7 +102,7 @@ add_shortcode('simples-trabalhe', 'simple_join_link');
 // CUSTOM POSTS
 /* CUSTOM POST TYPES */
 add_action('init', 'my_cpt_init');
-function my_cpt_init() 
+function my_cpt_init()
 {
 /* AREAS */
   $labelsAreas = array(
@@ -100,7 +115,7 @@ function my_cpt_init()
     'view_item' => 'Ver Área',
     'search_items' => 'Procurar Áreas',
     'not_found' =>  'Não foram encontradas Áreas',
-    'not_found_in_trash' => 'Não há Áreas no lixo', 
+    'not_found_in_trash' => 'Não há Áreas no lixo',
     'parent_item_colon' => '',
     'menu_name' => 'Áreas'
 
@@ -116,44 +131,11 @@ function my_cpt_init()
     'query_var' => true,
     'rewrite' => true,
     'capability_type' => 'page',
-    'has_archive' => true, 
+    'has_archive' => true,
     'hierarchical' => false,
     'supports' => array('title', 'editor')
   );
   register_post_type('areas',$argsAreas);
-// /* MEMBER */
-//   $labelsMembers = array(
-//     'name' => 'Tradutores',
-//     'singular_name' => 'Tradutor',
-//     'add_new' => 'Novo Tradutor',
-//     'add_new_item' => 'Adicionar novo Tradutor',
-//     'edit_item' => 'Editar Tradutor',
-//     'new_item' => 'Novo Tradutor',
-//     'view_item' => 'Ver Tradutor',
-//     'search_items' => 'Procurar Tradutores',
-//     'not_found' =>  'Não foram encontrados Tradutores',
-//     'not_found_in_trash' => 'Não há Tradutores no lixo', 
-//     'parent_item_colon' => '',
-//     'menu_name' => 'Equipe'
-
-//   );
-//   $argsMembers = array(
-//     'labels' => $labelsMembers,
-//     'public' => true,
-//     'publicly_queryable' => true,
-//     'show_ui' => true,
-//     'exclude_from_search' => false,
-//     'menu_position' => 6,
-//     'show_in_menu' => true,
-//     'query_var' => true,
-//     // 'rewrite' => array('slug' => 'portfolio', 'with_front' => false),
-//     'rewrite' => true,
-//     'capability_type' => 'post',
-//     'has_archive' => true, 
-//     'hierarchical' => false,
-//     'supports' => array('title','editor', 'thumbnail')
-//   );
-//   register_post_type('members',$argsMembers);
 }
 
 function change_post_menu_label() {
@@ -192,7 +174,7 @@ function editglobalcustomfields() {
     <input type="text" name="google_analytics" id="google_analytics" value="<?php echo get_option('google_analytics');?>" />
   </p>
   <p><input type="submit" name="Submit" value="Salvar Alterações" /></p>
-  
+
   <input type="hidden" name="action" value="update" />
   <input type="hidden" name="page_options" value="google_analytics" />
 
