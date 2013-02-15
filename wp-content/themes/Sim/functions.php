@@ -90,15 +90,6 @@ function simple_join_link( $attr, $content = null ) {
 }
 add_shortcode('simples-trabalhe', 'simple_join_link');
 
-// FUNCOES
-// function get_permalink_by_name($page_name)
-// {
-// 	global $post;
-// 	global $wpdb;
-// 	$pageid_name = $wpdb->get_var("SELECT ID FROM $wpdb->posts WHERE post_name = '".$page_name."'");
-// 	return get_permalink($pageid_name);
-// }
-
 // CUSTOM POSTS
 /* CUSTOM POST TYPES */
 add_action('init', 'my_cpt_init');
@@ -133,7 +124,7 @@ function my_cpt_init()
     'capability_type' => 'page',
     'has_archive' => true,
     'hierarchical' => false,
-    'supports' => array('title', 'editor')
+    'supports' => array('title', 'editor', 'revisions')
   );
   register_post_type('areas',$argsAreas);
 }
